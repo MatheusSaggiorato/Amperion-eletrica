@@ -1,0 +1,22 @@
+@media (max-width: 768px) {
+  .menu-toggle { display: flex; }
+  
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--bg-dark);
+    flex-direction: column;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-menu.active { display: flex; }
+  .hero h1 { font-size: 1.875rem; }
+  .hero p { font-size: 1rem; }
+  .hero-buttons { flex-direction: column; }
+  .hero-buttons .btn { width: 100%; text-align: center; }
+  .section { padding: 50px 0; }
+}

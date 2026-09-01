@@ -1,0 +1,190 @@
+:root {
+  --primary: #0284c7;
+  --primary-hover: #0369a1;
+  --whatsapp: #16a34a;
+  --whatsapp-hover: #15803d;
+  --bg-dark: #0f172a;
+  --bg-card: #1e293b;
+  --bg-light: #f8fafc;
+  --text-dark: #0f172a;
+  --text-light: #f8fafc;
+  --text-muted: #64748b;
+  --border: #334155;
+  --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  font-family: var(--font-main);
+}
+
+body {
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.text-center { text-align: center; }
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: var(--bg-dark);
+  border-bottom: 1px solid var(--border);
+  z-index: 1000;
+}
+
+.nav-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 14px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.nav-logo {
+  height: 36px;
+  width: auto;
+}
+
+.brand-name {
+  color: var(--text-light);
+  font-weight: 800;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav-menu a {
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-menu a:hover { color: var(--text-light); }
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.menu-toggle .bar {
+  width: 25px;
+  height: 3px;
+  background-color: var(--text-light);
+  border-radius: 2px;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s, transform 0.1s;
+  cursor: pointer;
+}
+
+.btn:active { transform: scale(0.98); }
+.btn-primary { background-color: var(--primary); color: #ffffff; }
+.btn-primary:hover { background-color: var(--primary-hover); }
+.btn-secondary { background-color: #334155; color: #ffffff; }
+.btn-secondary:hover { background-color: #475569; }
+.btn-whatsapp { background-color: var(--whatsapp); color: #ffffff; }
+.btn-whatsapp:hover { background-color: var(--whatsapp-hover); }
+.btn-nav { background-color: var(--primary); color: #ffffff !important; padding: 8px 16px; border-radius: 4px; }
+
+/* Hero */
+.hero {
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  padding: 160px 20px 100px;
+  text-align: center;
+}
+
+.hero-content { max-width: 800px; margin: 0 auto; }
+.hero h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 16px; line-height: 1.2; }
+.hero p { font-size: 1.15rem; color: #94a3b8; margin-bottom: 32px; }
+.hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+/* Sections */
+.section { padding: 80px 0; }
+.section-dark { background-color: var(--bg-dark); color: var(--text-light); }
+.section h2 { font-size: 2rem; margin-bottom: 12px; text-align: center; }
+.section-subtitle { text-align: center; color: var(--text-muted); margin-bottom: 48px; }
+.section-dark .section-subtitle { color: #94a3b8; }
+
+/* Grids & Cards */
+.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+
+.card-about, .card-service, .card-portfolio {
+  background-color: #ffffff;
+  padding: 32px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.section-dark .card-service {
+  background-color: var(--bg-card);
+  border-color: var(--border);
+}
+
+.card-service h3, .card-about h3 { margin-bottom: 12px; font-size: 1.25rem; }
+.card-service p, .card-about p { color: var(--text-muted); font-size: 0.95rem; }
+.section-dark .card-service p { color: #94a3b8; }
+
+/* Gallery */
+.card-portfolio { padding: 0; overflow: hidden; position: relative; }
+.card-portfolio img { width: 100%; height: 260px; object-fit: cover; display: block; }
+.card-portfolio h4 { padding: 16px; font-size: 1rem; text-align: center; }
+.portfolio-tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+.text-before { background-color: #ef4444; }
+.text-after { background-color: #10b981; }
+
+.contact-links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 24px; }
+
+/* Footer */
+footer { background-color: #020617; color: #64748b; padding: 32px 0; font-size: 0.85rem; border-top: 1px solid var(--border); }
+.footer-terms a { color: #94a3b8; text-decoration: none; margin-top: 8px; display: inline-block; }
