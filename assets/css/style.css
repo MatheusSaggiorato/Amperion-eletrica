@@ -1,15 +1,34 @@
 :root {
-  --primary: #0284c7;
-  --primary-hover: #0369a1;
-  --whatsapp: #16a34a;
-  --whatsapp-hover: #15803d;
-  --bg-dark: #0f172a;
-  --bg-card: #1e293b;
-  --bg-light: #f8fafc;
-  --text-dark: #0f172a;
-  --text-light: #f8fafc;
-  --text-muted: #64748b;
-  --border: #334155;
+  /* Marca */
+  --primary: #ff5500;
+  --primary-hover: #ff6a1f;
+  /* mais claro no hover sobre fundo escuro — reforça o brilho */
+  --primary-press: #e04a00;
+  /* mais escuro, estado pressionado */
+  --on-primary: #060f19;
+  /* texto sobre laranja: contraste muito mais alto que branco sobre laranja */
+
+  --whatsapp: #25d366;
+  --whatsapp-hover: #1eb958;
+
+  /* Fundo escuro / degradê */
+  --bg-dark: #060f19;
+  --bg-gradient-start: #1f242a;
+  --bg-gradient-end: #060f19;
+  --bg-dark-gradient: linear-gradient(160deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+  --bg-card-dark: #11161d;
+
+  --bg-light: #f7f8fa;
+
+  /* Texto */
+  --text-dark: #0c1620;
+  --text-light: #f5f7fa;
+  --text-muted: #8b95a1;
+  --text-muted-dark-bg: #9aa5b1;
+
+  --border: #232a33;
+  --border-light: #e2e5e9;
+
   --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
@@ -34,7 +53,9 @@ body {
   padding: 0 20px;
 }
 
-.text-center { text-align: center; }
+.text-center {
+  text-align: center;
+}
 
 /* Navbar */
 .navbar {
@@ -63,15 +84,19 @@ body {
 }
 
 .nav-logo {
-  height: 36px;
+  height: 56px;
   width: auto;
 }
 
 .brand-name {
   color: var(--text-light);
   font-weight: 800;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   letter-spacing: 1px;
+}
+
+.brand-name span {
+  color: var(--primary);
 }
 
 .nav-menu {
@@ -81,14 +106,17 @@ body {
 }
 
 .nav-menu a {
-  color: #94a3b8;
+  color: var(--text-muted-dark-bg);
   text-decoration: none;
   font-size: 0.95rem;
   font-weight: 500;
   transition: color 0.2s;
+  position: relative;
 }
 
-.nav-menu a:hover { color: var(--text-light); }
+.nav-menu a:hover {
+  color: var(--primary);
+}
 
 .menu-toggle {
   display: none;
@@ -102,74 +130,365 @@ body {
 .menu-toggle .bar {
   width: 25px;
   height: 3px;
-  background-color: var(--text-light);
+  background-color: var(--primary);
   border-radius: 2px;
 }
 
-/* Buttons */
 .btn {
   display: inline-block;
-  padding: 12px 24px;
+  padding: 12px 26px;
   border-radius: 6px;
-  font-weight: 600;
+  font-weight: 700;
   text-decoration: none;
-  transition: background-color 0.2s, transform 0.1s;
+  transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
   cursor: pointer;
 }
 
-.btn:active { transform: scale(0.98); }
-.btn-primary { background-color: var(--primary); color: #ffffff; }
-.btn-primary:hover { background-color: var(--primary-hover); }
-.btn-secondary { background-color: #334155; color: #ffffff; }
-.btn-secondary:hover { background-color: #475569; }
-.btn-whatsapp { background-color: var(--whatsapp); color: #ffffff; }
-.btn-whatsapp:hover { background-color: var(--whatsapp-hover); }
-.btn-nav { background-color: var(--primary); color: #ffffff !important; padding: 8px 16px; border-radius: 4px; }
+.btn:active {
+  transform: scale(0.98);
+}
 
-/* Hero */
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--on-primary);
+  /* Substitua o seu box-shadow atual por esta linha de animação */
+  animation: pulso-botao 1.5s infinite cubic-bezier(0.66, 0, 0, 1);
+}
+
+/* Adicione este bloco no final do seu arquivo CSS */
+@keyframes pulso-botao {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 85, 0, 0.6);
+  }
+
+  70% {
+    box-shadow: 0 0 0 12px rgba(255, 85, 0, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 85, 0, 0);
+  }
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  box-shadow: 0 6px 20px rgba(255, 85, 0, 0.35);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--primary);
+  border: 1.5px solid var(--primary);
+}
+
+.btn-secondary:hover {
+  background-color: var(--primary);
+  color: var(--on-primary);
+}
+
+.btn-whatsapp {
+  background-color: var(--whatsapp);
+  color: #ffffff;
+}
+
+.btn-whatsapp:hover {
+  background-color: var(--whatsapp-hover);
+}
+
+.btn-nav {
+  background-color: var(--primary);
+  color: var(--on-primary) !important;
+  padding: 8px 16px;
+  border-radius: 4px;
+}
+
+.btn-nav:hover {
+  background-color: var(--primary-hover);
+}
+
 .hero {
-  background-color: var(--bg-dark);
+  background:
+    radial-gradient(ellipse 900px 500px at 50% -10%, rgba(255, 85, 0, 0.25), transparent 65%),
+    linear-gradient(160deg, rgba(31, 36, 42, 0.75) 0%, rgba(6, 15, 25, 0.85) 55%, rgba(6, 15, 25, 0.92) 100%),
+    url("/assets/images/hero-image.webp");
+  background-size: cover;
+  background-position: center 55%;
+  background-repeat: no-repeat;
   color: var(--text-light);
   padding: 160px 20px 100px;
   text-align: center;
 }
 
-.hero-content { max-width: 800px; margin: 0 auto; }
-.hero h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 16px; line-height: 1.2; }
-.hero p { font-size: 1.15rem; color: #94a3b8; margin-bottom: 32px; }
-.hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.hero h1 em {
+  color: var(--primary);
+  font-style: normal;
+}
+
+.hero p {
+  font-size: 1.15rem;
+  color: var(--text-muted-dark-bg);
+  margin-bottom: 32px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hero-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 12px;
+  list-style: none;
+  padding: 0;
+  margin: 0 auto 32px;
+  max-width: 700px;
+}
+
+.hero-list li {
+  color: var(--text-light);
+  font-size: 0.85rem;
+  font-weight: 600;
+  background-color: rgba(255, 85, 0, 0.12);
+  border: 1px solid var(--primary);
+  padding: 8px 16px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
 
 /* Sections */
-.section { padding: 80px 0; }
-.section-dark { background-color: var(--bg-dark); color: var(--text-light); }
-.section h2 { font-size: 2rem; margin-bottom: 12px; text-align: center; }
-.section-subtitle { text-align: center; color: var(--text-muted); margin-bottom: 48px; }
-.section-dark .section-subtitle { color: #94a3b8; }
+.section {
+  padding: 80px 0;
+}
 
-/* Grids & Cards */
-.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
-.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+.section-dark {
+  background: var(--bg-dark-gradient);
+  color: var(--text-light);
+}
 
-.card-about, .card-service, .card-portfolio {
+.section h2 {
+  font-size: 2rem;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.section-dark h2 {
+  color: var(--text-light);
+}
+
+.section-subtitle {
+  text-align: center;
+  color: var(--text-muted);
+  margin-bottom: 48px;
+}
+
+.section-dark .section-subtitle {
+  color: var(--text-muted-dark-bg);
+}
+
+.section h2::after {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 4px;
+  background-color: var(--primary);
+  margin: 16px auto 0;
+  border-radius: 2px;
+}
+
+.form-group {
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+/* Suporte para versão em tema escuro caso aplique .section-dark */
+.section-dark .form-group label {
+  color: var(--text-light);
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  font-size: 0.95rem;
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  font-family: var(--font-main);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.section-dark .form-group input,
+.section-dark .form-group select {
+  background-color: var(--bg-dark);
+  border-color: var(--border);
+  color: var(--text-light);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(255, 85, 0, 0.15);
+}
+
+.resultado-box {
+  margin-top: 20px;
+  display: none;
+  padding: 16px;
+  background-color: rgba(255, 85, 0, 0.08);
+  /* Fundo levemente alaranjado */
+  border-left: 4px solid var(--primary);
+  border-radius: 4px;
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+.section-dark .resultado-box {
+  color: var(--text-light);
+}
+
+.resultado-box strong {
+  color: var(--primary);
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 640px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.card-about,
+.card-portfolio {
   background-color: #ffffff;
   padding: 32px;
   border-radius: 8px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--border-light);
+  border-top: 3px solid var(--primary);
+}
+
+.card-service {
+  background-color: #ffffff;
+  padding: 32px;
+  border-radius: 8px;
+  border: 1px solid var(--border-light);
+  border-top: 3px solid var(--primary);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card-service:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(255, 85, 0, 0.18);
 }
 
 .section-dark .card-service {
-  background-color: var(--bg-card);
+  background-color: var(--bg-card-dark);
   border-color: var(--border);
+  border-top: 3px solid var(--primary);
 }
 
-.card-service h3, .card-about h3 { margin-bottom: 12px; font-size: 1.25rem; }
-.card-service p, .card-about p { color: var(--text-muted); font-size: 0.95rem; }
-.section-dark .card-service p { color: #94a3b8; }
+.card-service svg.lucide {
+  width: 34px;
+  height: 34px;
+  stroke-width: 1.75;
+  color: var(--primary);
+  margin-bottom: 14px;
+  display: block;
+}
 
-/* Gallery */
-.card-portfolio { padding: 0; overflow: hidden; position: relative; }
-.card-portfolio img { width: 100%; height: 260px; object-fit: cover; display: block; }
-.card-portfolio h4 { padding: 16px; font-size: 1rem; text-align: center; }
+.card-service h3,
+.card-about h3 {
+  margin-bottom: 12px;
+  font-size: 1.25rem;
+}
+
+.section-dark .card-service h3 {
+  color: var(--primary);
+}
+
+.card-service p,
+.card-about p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.section-dark .card-service p {
+  color: var(--text-muted-dark-bg);
+}
+
+/* Números / estatísticas em destaque — o laranja funciona muito bem aqui sobre o fundo escuro */
+.stat-number {
+  color: var(--primary);
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.stat-label {
+  color: var(--text-muted-dark-bg);
+  font-size: 0.9rem;
+  margin-top: 6px;
+}
+
+/* Galeria */
+.card-portfolio {
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+  border-top: none;
+}
+
+.card-portfolio img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+}
+
+.card-portfolio h4 {
+  padding: 16px;
+  font-size: 1rem;
+  text-align: center;
+  border-top: 3px solid var(--primary);
+}
+
 .portfolio-tag {
   position: absolute;
   top: 12px;
@@ -180,11 +499,41 @@ body {
   font-weight: 700;
   color: #ffffff;
 }
-.text-before { background-color: #ef4444; }
-.text-after { background-color: #10b981; }
 
-.contact-links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 24px; }
+/* Antes/depois mantidos em vermelho/verde semânticos — trocar por laranja tiraria a
+   clareza do contraste "antes vs depois", que é informação, não decoração */
+.text-before {
+  background-color: #ef4444;
+}
+
+.text-after {
+  background-color: #10b981;
+}
+
+.contact-links {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
 
 /* Footer */
-footer { background-color: #020617; color: #64748b; padding: 32px 0; font-size: 0.85rem; border-top: 1px solid var(--border); }
-.footer-terms a { color: #94a3b8; text-decoration: none; margin-top: 8px; display: inline-block; }
+footer {
+  background-color: var(--bg-gradient-end);
+  color: var(--text-muted);
+  padding: 32px 0;
+  font-size: 0.85rem;
+  border-top: 1px solid var(--border);
+}
+
+.footer-terms a {
+  color: var(--text-muted-dark-bg);
+  text-decoration: none;
+  margin-top: 8px;
+  display: inline-block;
+}
+
+.footer-terms a:hover {
+  color: var(--primary);
+}

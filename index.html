@@ -1,239 +1,324 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Amperion | Serviços Elétricos e Manutenção</title>
-  
-  <!-- SEO e Meta Tags -->
-  <meta name="description" content="Amperion Serviços Elétricos e Manutenção. Atendimento residencial, predial e comercial por Matheus Saggiorato.">
-  <meta property="og:title" content="Amperion Serviços Elétricos e Manutenção">
-  <meta property="og:description" content="Site em desenvolvimento. Entre em contato diretamente pelo WhatsApp para orçamentos e atendimentos.">
+  <title>Eletricista em Passo Fundo | Amperion Serviços Elétricos</title>
+
+  <meta name="description"
+    content="Elétrica residencial, predial e comercial em Passo Fundo. Do chuveiro que parou ao quadro que não para de desarmar — atendimento rápido e trabalho bem-feito.">
+  <meta property="og:title" content="Amperion Elétrica — Resolve seu problema elétrico">
+  <meta property="og:description"
+    content="Instalações, manutenção, quadros elétricos e reformas com atendimento claro, sem enrolação.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://amperioneletrica.com.br">
+  <meta property="og:image" content="https://amperioneletrica.com.br/assets/images/og-preview.webp">
+  <meta name="twitter:card" content="summary_large_image">
 
-  <!-- Prevenção de Cache -->
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <meta http-equiv="Pragma" content="no-cache">
-  <meta http-equiv="Expires" content="0">
+  <link rel="icon" type="image/webp" href="assets/images/logo-web.webp">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="preload" as="image" href="assets/hero-quadro-eletrico.webp" fetchpriority="high">
 
-  <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
-
-  <style>
-    :root {
-      --primary-orange: #ff5500;
-      --bg-gradient-start: #1f242a;
-      --bg-gradient-end: #060f19;
-      --text-white: #ffffff;
-      --text-muted: #a0aec0;
-      --card-border: rgba(255, 85, 0, 0.2);
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    }
-
-    body {
-      background: radial-gradient(circle at 0% 0%, var(--bg-gradient-start), var(--bg-gradient-end));
-      color: var(--text-white);
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-    }
-
-    .card-container {
-      width: 100%;
-      max-width: 500px;
-      background-color: rgba(6, 15, 25, 0.7);
-      border: 1px solid var(--card-border);
-      border-radius: 12px;
-      padding: 36px 28px;
-      text-align: center;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(8px);
-    }
-
-    /* Marca / Logotipo */
-    .brand-header {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .logo-img {
-      max-width: 160px;
-      width: 100%;
-      height: auto;
-      margin-bottom: 12px;
-      filter: drop-shadow(0 4px 12px rgba(255, 85, 0, 0.15));
-    }
-
-    .brand-title {
-      font-size: 2.2rem;
-      font-weight: 800;
-      color: var(--primary-orange);
-      letter-spacing: 3px;
-      line-height: 1.1;
-    }
-
-    .brand-subtitle {
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--text-white);
-      letter-spacing: 1.5px;
-      margin-top: 6px;
-    }
-
-    /* Divisor */
-    .divider {
-      border: none;
-      height: 2px;
-      background-color: var(--primary-orange);
-      margin: 24px 0;
-    }
-
-    /* Informações do Profissional */
-    .engineer-name {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--text-white);
-      margin-bottom: 16px;
-    }
-
-    .engineer-name .role {
-      color: var(--text-muted);
-      font-weight: 400;
-    }
-
-    /* Status Badge com Animação */
-    .status-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background-color: rgba(255, 85, 0, 0.1);
-      border: 1px solid rgba(255, 85, 0, 0.3);
-      color: var(--primary-orange);
-      font-size: 0.78rem;
-      font-weight: 600;
-      padding: 6px 14px;
-      border-radius: 20px;
-      margin-bottom: 28px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .status-dot {
-      width: 8px;
-      height: 8px;
-      background-color: var(--primary-orange);
-      border-radius: 50%;
-      box-shadow: 0 0 8px var(--primary-orange);
-      animation: pulse 1.8s infinite;
-    }
-
-    @keyframes pulse {
-      0% { opacity: 0.4; transform: scale(0.9); }
-      50% { opacity: 1; transform: scale(1.2); }
-      100% { opacity: 0.4; transform: scale(0.9); }
-    }
-
-    /* Botões de Ação */
-    .actions {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      width: 100%;
-      padding: 14px 16px;
-      border-radius: 8px;
-      font-size: 0.95rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: transform 0.15s ease, background-color 0.2s ease, border-color 0.2s ease;
-    }
-
-    .btn:active {
-      transform: scale(0.98);
-    }
-
-    .btn-whatsapp {
-      background-color: var(--primary-orange);
-      color: var(--text-white);
-      border: 1px solid var(--primary-orange);
-    }
-
-    .btn-whatsapp:hover {
-      background-color: #e04b00;
-      border-color: #e04b00;
-    }
-
-    .btn-secondary {
-      background-color: rgba(255, 255, 255, 0.05);
-      color: var(--text-white);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-    }
-
-    .btn-secondary:hover {
-      background-color: rgba(255, 255, 255, 0.1);
-      border-color: rgba(255, 255, 255, 0.3);
-    }
-
-    /* Rodapé */
-    footer {
-      margin-top: 28px;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      letter-spacing: 0.5px;
-    }
-  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Electrician",
+    "name": "Amperion Elétrica",
+    "telephone": "+5554991610040",
+    "email": "contato@amperioneletrica.com.br",
+    "areaServed": "Passo Fundo, RS",
+    "url": "https://amperioneletrica.com.br"
+  }
+  </script>
 </head>
+
 <body>
 
-  <main class="card-container">
-    <!-- Logotipo / Imagem da Marca -->
-    <header class="brand-header">
-      <img src="assets/images/logo-web.webp" alt="Amperion Serviços Elétricos e Manutenção" class="logo-img" onerror="this.style.display='none'">
-      <h1 class="brand-title">AMPERION</h1>
-      <p class="brand-subtitle">SERVIÇOS ELÉTRICOS E MANUTENÇÃO</p>
-    </header>
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="#inicio" class="logo-link">
+        <img src="assets/images/logo-web.webp" alt="Amperion Elétrica Logo" class="nav-logo">
+        <span class="brand-name">AMPERION</span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir Menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <nav class="nav-menu" id="navMenu">
+        <a href="#inicio">Início</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#servicos">Serviços</a>
+        <!--<a href="#portfolio">Portfólio</a>-->
+        <a href="#simuladores">Simuladores</a>
+        <a href="#contato" class="btn-nav">Contato</a>
+      </nav>
+    </div>
+  </header>
 
-    <hr class="divider">
-
-    <!-- Informações do Profissional -->
-    <section class="info-section">
-      <p class="engineer-name">Matheus Saggiorato <span class="role">| Eletricista</span></p>
-      
-      <!-- Status Badge -->
-      <div class="status-badge">
-        <span class="status-dot"></span>
-        Site oficial em construção
+  <section id="inicio" class="hero">
+    <div class="hero-content">
+      <h1>Instalações Elétricas em Passo Fundo</h1>
+      <ul class="hero-list">
+        <li>✓ Garantia estendida em todos os serviços</li>
+        <li>✓ Do reparo simples à obra elétrica completa</li>
+        <li>✓ Cada etapa documentada</li>
+        <li>✓ Instrumentação, prática e conhecimento técnico</li>
+      </ul>
+      <div class="hero-buttons">
+        <a href="https://wa.me/5554991610040?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento."
+          class="btn btn-primary" target="_blank" rel="noopener noreferrer">Pedir Orçamento no WhatsApp</a>
+        <a href="#servicos" class="btn btn-secondary">Ver Serviços</a>
       </div>
+    </div>
+  </section>
 
-      <!-- Botões de Ação Direta -->
-      <div class="actions">
-        <a href="https://wa.me/5554991610040?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento." class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-          (54) 99161-0040
-        </a>
+  <section id="sobre" class="section">
+    <div class="container">
+      <h2>Sobre a Amperion</h2>
+      <p class="section-subtitle">Elétrica executada com padrão técnico, comunicação clara e responsabilidade do
+        início ao fim.</p>
+      <div class="grid-2">
+        <div class="card-about">
+          <h3>Compromisso com o padrão técnico</h3>
+          <p>A Amperion existe pra tirar a elétrica do improviso e do achismo. Cada projeto e execução é baseado na NBR
+            5410,
+            pensando na carga real da sua instalação, durabilidade e segurança.
+          </p>
+        </div>
+        <div class="card-about">
+          <h3>Transparência do orçamento à entrega</h3>
+          <p>Você recebe explicação clara de cada etapa, sabe o que está sendo instalado e por quê. Sem quadro elétrico
+            que só o eletricista entende.</p>
+        </div>
+        <div class="card-about">
+          <h3>Preparados pra crescer com sua obra</h3>
+          <p>Atendemos desde reparos residenciais pontuais até instalações completas de obra nova, com emissão de ART e
+            projeto quando necessário.</p>
+        </div>
+        <div class="card-about">
+          <h3>Garantia e responsabilidade</h3>
+          <p>Todo serviço sai com garantia estendida da execução. Se algo não ficou como devia, a gente volta e resolve
+            prontamente, sem nenhum custo adicional.</p>
+        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Rodapé -->
-    <footer>
-      <p>www.amperioneletrica.com.br</p>
-    </footer>
-  </main>
+  <section id="servicos" class="section section-dark">
+    <div class="container">
+      <h2>O que a gente resolve</h2>
+      <div class="grid-3">
+        <div class="card-service">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="lucide lucide-plug-zap">
+            <path d="M6.3 20.3a2.4 2.4 0 0 0 3.4 0L12 18l-6-6-2.3 2.3a2.4 2.4 0 0 0 0 3.4Z" />
+            <path d="m2 22 3-3" />
+            <path d="M7.5 13.5 10 11" />
+            <path d="M10.5 16.5 13 14" />
+            <path d="m18 3-4 4h6l-4 4" />
+          </svg>
+          <h3>Instalações elétricas completas</h3>
+          <p>Projeto e execução do zero pra obra nova. Fiação, quadro, pontos de luz e tomadas dimensionados desde
+            o início, sem gambiarra ou achismo.</p>
+        </div>
+        <div class="card-service">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="lucide lucide-square-equal">
+            <rect width="18" height="18" x="3" y="3" rx="2" />
+            <path d="M7 10h10" />
+            <path d="M7 14h10" />
+          </svg>
+          <h3>Quadro de distribuição</h3>
+          <p>Troca, organização, implementação ou ampliação do quadro. Disjuntores, DR e DPS (proteção contra choques e
+            surtos), medidores de consumo inteligente. Tudo pensado pro
+            seu consumo real.</p>
+        </div>
+        <div class="card-service">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="lucide lucide-wrench">
+            <path
+              d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z" />
+          </svg>
+          <h3>Reformas e retrofit</h3>
+          <p>Fiação nova, troca de fiação antiga, tomadas, interruptores e pontos de luz e consumo. Aquela reforma que
+            você
+            está adiando feita sem dor de cabeça.</p>
+        </div>
+        <div class="card-service">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="lucide lucide-shield-alert">
+            <path
+              d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+            <path d="M12 8v4" />
+            <path d="M12 16h.01" />
+          </svg>
+          <h3>Dimensionamento e proteção</h3>
+          <p>Redimensionamento de circuitos, padrão de entrada e aterramento. A base que evita choque,
+            incêndio, queima de equipamento e aquela queda de energia que acontece quando mais precisamos.</p>
+        </div>
+        <div class="card-service">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="lucide lucide-house-wifi">
+            <path d="M9.5 13.866a4 4 0 0 1 5 .01" />
+            <path d="M12 17h.01" />
+            <path
+              d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+            <path d="M7 10.754a8 8 0 0 1 10 0" />
+          </svg>
+          <h3>Automação e sensores</h3>
+          <p>Iluminação e medição inteligente, sensores de presença e equipamentos automatizados, integrados à sua
+            instalação elétrica.</p>
+        </div>
+        <div class="card-service">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="lucide lucide-search-check">
+            <path d="m8 11 2 2 4-4" />
+            <circle cx="11" cy="11" r="8" />
+            <path d="m21 21-4.3-4.3" />
+          </svg>
+          <h3>Manutenção e diagnóstico</h3>
+          <p>Disjuntor caindo sem motivo? Luz piscando? Chuveiro saindo fumaça? Conta de luz aumentou muito sem mudança
+            de consumo aparente? A gente encontra a causa.</p>
+        </div>
+      </div>
+      <p class="section-subtitle" style="margin-top: 48px; margin-bottom: 0; font-size: 0.85rem;">Serviços
+        executados em conformidade com a NBR 5410, garantindo instalações seguras e dentro do padrão técnico
+        exigido.</p>
+    </div>
+  </section>
 
+  <section id="simuladores" class="section">
+    <div class="container">
+      <h2>Simuladores Elétricos</h2>
+      <p class="section-subtitle">Calcule o dimensionamento seguro e o consumo estimado dos seus
+        equipamentos.</p>
+
+      <div class="grid-2">
+        <!-- Ferramenta 1: Dimensionador -->
+        <div class="card-service">
+          <h3><span class="icon">⚡</span> Dimensionador de Circuito</h3>
+
+          <div class="form-group">
+            <label for="carga-exemplo">Carga Sugerida (Opcional):</label>
+            <select id="carga-exemplo" onchange="preencherPotencia()">
+              <option value="">-- Personalizado --</option>
+              <option value="7500" data-tipo="forca">Chuveiro Elétrico Potente (7500W)</option>
+              <option value="5500" data-tipo="forca">Chuveiro Elétrico Médio (5500W)</option>
+              <option value="1750" data-tipo="forca">Lava Louças 12 Serviços (1750W)</option>
+              <option value="1600" data-tipo="forca">Micro-ondas / Forno Elétrico (1600W)</option>
+              <option value="1200" data-tipo="forca">Ar Condicionado 12k BTU (1200W)</option>
+              <option value="150" data-tipo="forca">Geladeira Inverter 450l (150w)</option>
+              <option value="24" data-tipo="iluminacao">Luminária Led 30x30cm (24W)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="potencia-dim">Potência (Watts):</label>
+            <input type="number" id="potencia-dim" placeholder="Ex: 5500">
+          </div>
+
+          <div class="form-group">
+            <label for="tensao-dim">Tensão da Rede:</label>
+            <select id="tensao-dim">
+              <option value="220">220V</option>
+              <option value="127">127V</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="tipo-circuito">Tipo de Circuito:</label>
+            <select id="tipo-circuito">
+              <option value="forca">Força (Tomadas - Mín. 2,5mm²)</option>
+              <option value="iluminacao">Iluminação (Mín. 1,5mm²)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="metodo-inst">Método de Instalação dos cabos:</label>
+            <select id="metodo-inst">
+              <option value="B1">B1 - Embutido na alvenaria (mais comum)</option>
+              <option value="A1">A1 - Embutido em parede de drywall </option>
+              <option value="C">C - Cabo aparente</option>
+            </select>
+          </div>
+
+          <p style="font-size: 0.8rem; color: var(--text-muted); text-align: center; margin-top: 24px;">
+            <strong>Aviso:</strong> O algoritmo não considera
+            fatores normativos de agrupamento de cabos, queda de tensão por distância e demais correções. Os
+            resultados não substituem análise profissional.
+          </p>
+
+          <button onclick="calcularDimensionamento()" class="btn btn-primary"
+            style="width: 100%; margin-top: 10px;">Calcular</button>
+
+          <div id="resultado-dim" class="resultado-box"></div>
+        </div>
+
+        <!-- Ferramenta 2: Consumo -->
+        <div class="card-service">
+          <h3><span class="icon">💰</span> Estimativa de Consumo</h3>
+
+          <div class="form-group">
+            <label for="potencia-cons">Potência do Aparelho (Watts):</label>
+            <input type="number" id="potencia-cons" placeholder="Ex: 5500">
+          </div>
+
+          <div class="form-group">
+            <label for="tempo-uso">Tempo de uso (Minutos):</label>
+            <input type="number" id="tempo-uso" placeholder="Ex: 15">
+          </div>
+
+          <div class="form-group">
+            <label for="tarifa-kwh" style="margin-bottom: 4px;">Tarifa de Energia (R$/kWh):</label>
+            <p
+              style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0; margin-bottom: 10px; line-height: 1.4; text-align: left;">
+              Dica: Para encontrar seu custo real (já com impostos e bandeiras), divida o valor total da fatura pelo
+              consumo em kWh.
+            </p>
+            <input type="number" id="tarifa-kwh" placeholder="Ex: 1.20" step="0.01" value="1.20">
+          </div>
+
+          <button onclick="calcularConsumo()" class="btn btn-primary" style="width: 100%; margin-top: 10px;">Calcular
+            Custo</button>
+
+          <div id="resultado-cons" class="resultado-box"></div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato" class="section section-dark">
+    <div class="container text-center">
+      <h2>Vamos resolver seu problema elétrico?</h2>
+      <p class="section-subtitle">Atendimento em Passo Fundo e região — casa, prédio ou comércio.</p>
+      <div class="contact-links">
+        <a href="https://wa.me/5554991610040?text=Ol%C3%A1!%20Preciso%20de%20atendimento%20el%C3%A9trico."
+          class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">Conversar no WhatsApp</a>
+        <a href="mailto:contato@amperioneletrica.com.br?subject=Solicita%C3%A7%C3%A3o%20de%20Or%C3%A7amento&body=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento."
+          class="btn btn-secondary">contato@amperioneletrica.com.br</a>
+        <a href="tel:5554991610040" class="btn btn-secondary">(54) 99161-0040</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container text-center">
+      <p>© Amperion Elétrica — Todos os direitos reservados.</p>
+      <p class="footer-terms"><a href="termos.html">Termos e Informações Legais</a></p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
 </body>
+
 </html>
